@@ -20,13 +20,14 @@ const ContactsForm = ({ onAddContact }) => {
     <form className={css.contactsForm} onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Name"
+        name="name"
+        placeholder="Enter name"
         value={name}
         onChange={(event) => setName(event.target.value)}
       />
       <input
         type="text"
-        placeholder="Number"
+        placeholder="Phone Number"
         value={number}
         onChange={(event) => setNumber(event.target.value)}
       />
