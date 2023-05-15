@@ -1,19 +1,28 @@
-.form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  
-  .form input {
-    margin-bottom: 10px;
-    padding: 10px;
-  }
-  
-  .form button {
-    padding: 10px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
+.contactsForm {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.contactsForm input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.contactsForm button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.contactsForm button:hover {
+  background-color: #45a049;
+}
