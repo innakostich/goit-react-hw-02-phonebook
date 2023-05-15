@@ -3,12 +3,13 @@
     padding: 0;
   }
   
-  .item {
+  .contactItem {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
   }
+  
   
   .name {
     font-weight: bold;

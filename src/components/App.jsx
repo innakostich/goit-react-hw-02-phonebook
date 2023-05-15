@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { ContactsForm } from './ContactsForm';
-import { ContactsList } from './ContactsList';
-import { Filter } from './Filter';
+import ContactsForm from './ContactsForm/ContactsForm';
+import ContactsList from './ContactsList/ContactsList';
+import Filter from './Filter/Filter';
+
+
 import css from './App.module.css';
 
 const App = () => {

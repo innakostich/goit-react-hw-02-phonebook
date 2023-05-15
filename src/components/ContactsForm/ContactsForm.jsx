@@ -14,7 +14,8 @@ const ContactsForm = ({ onAddContact }) => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit}>
+    <form className={css.contactsForm} onSubmit={handleSubmit}>
+
       <input
         type="text"
         name="name"
