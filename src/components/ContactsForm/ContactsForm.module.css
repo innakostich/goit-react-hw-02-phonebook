@@ -2,6 +2,15 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  margin-left: 20px;
+  max-width: 400px;
+}
+
+.contactsForm label{
+  margin-bottom: 10px;
+  color: #2a3f2b;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .contactsForm input {
@@ -10,6 +19,10 @@
   border: 2px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
+}
+
+.contactsForm input:focus {
+  border: 2px solid #45a049;
 }
 
 .contactsForm button {
@@ -21,6 +34,7 @@
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  margin-top: 40px;
 }
 
 .contactsForm button:hover {

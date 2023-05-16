@@ -18,6 +18,7 @@ const ContactsForm = ({ onAddContact }) => {
 
   return (
     <form className={css.contactsForm} onSubmit={handleSubmit}>
+      <label>Name</label>
       <input
         type="text"
         name="name"
@@ -25,6 +26,7 @@ const ContactsForm = ({ onAddContact }) => {
         value={name}
         onChange={(event) => setName(event.target.value)}
       />
+      <label>Phone Number</label>
       <input
         type="text"
         placeholder="Phone Number"

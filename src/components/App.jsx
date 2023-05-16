@@ -3,7 +3,7 @@ import shortid from 'shortid';
 import ContactsForm from './ContactsForm/ContactsForm';
 import ContactsList from './ContactsList/ContactsList';
 import Filter from './Filter/Filter';
-
+import css from './App.module.css';
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -34,9 +34,10 @@ const App = () => {
 
   return (
     <div>
-      <h1>Phonebook</h1>
+      <h1 className={css.phonebookTitle}>Phonebook</h1>
       <ContactsForm onAddContact={handleAddContact} />
-      <h2>Contacts</h2>
+      <h2 className={css.contactsTitle}>Contacts</h2>
+      <p className={css.contactsLabel}>Find contacts by name</p>
       <Filter value={filter} onChange={handleFilterChange} />
       <ContactsList contacts={filteredContacts} onDeleteContact={handleDeleteContact} />
     </div>

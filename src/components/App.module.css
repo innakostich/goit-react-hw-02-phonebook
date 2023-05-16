@@ -1,7 +1,19 @@
 .allContacts {
     margin-bottom: 10px;
+    margin-left: 20px;
+  }
+  .phonebookTitle{
+    margin-left: 20px;
   }
   
-  .titleContacts {
+  .contactsTitle {
+    margin-left: 20px;
     margin-top: 70px;
+   
+  }
+  .contactsLabel{
+    margin:0  0 10px   20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #2a3f2b;
   }
