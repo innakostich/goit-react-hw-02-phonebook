@@ -10,6 +10,12 @@ const App = () => {
   const [filter, setFilter] = useState('');
 
   const handleAddContact = (name, number) => {
+    const existingContact = contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase());
+    if (existingContact) {
+      alert(`${name} is already in the contacts.`);
+      return;
+    }
+
     const newContact = {
       id: shortid.generate(),
       name,
