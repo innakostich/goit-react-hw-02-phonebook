@@ -104,56 +104,76 @@
 // };
 
 // export default ContactsForm;
-// ContactsForm.jsx
-import React, { useState } from 'react';
+
+
+import React from 'react';
 import PropTypes from 'prop-types';
 import css from './ContactsForm.module.css';
 
-const ContactsForm = ({ onAddContact }) => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+class ContactsForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      number: ''
+    };
+  }
 
-  const handleSubmit = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
+    const { name, number } = this.state;
     if (name.trim() === '' || number.trim() === '') {
       return;
     }
-    const formattedName = capitalizeFirstLetter(name.trim()); // Capitalize the first letter of the name
-    onAddContact(formattedName, number);
-    setName('');
-    setNumber('');
+    const formattedName = this.formatName(name.trim());
+    this.props.onAddContact(formattedName, number);
+    this.setState({ name: '', number: '' });
   };
 
-  const capitalizeFirstLetter = (str) => {
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  formatName = (name) => {
+    const [firstName, ...lastName] = name.split(' ');
+    const formattedFirstName = this.capitalizeFirstLetter(firstName.toLowerCase());
+    const formattedLastName = lastName.map(part => this.capitalizeFirstLetter(part.toLowerCase()));
+    return [formattedFirstName, ...formattedLastName].join(' ');
+  };
+
+  capitalizeFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
-  return (
-    <form className={css.contactsForm} onSubmit={handleSubmit}>
-      <label>Name</label>
-      <input
-        type="text"
-        name="name"
-        placeholder="Enter name"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-      />
-      <label>Phone Number</label>
-      <input
-        type="text"
-        name="number"
-        placeholder="Phone Number"
-        value={number}
-        onChange={(event) => setNumber(event.target.value)}
-      />
-      <button type="submit">Add contact</button>
-    </form>
-  );
-};
+  render() {
+    const { name, number } = this.state;
+
+    return (
+      <form className={css.contactsForm} onSubmit={this.handleSubmit}>
+        <label>Name</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter name"
+          value={name}
+          onChange={this.handleChange}
+        />
+        <label>Phone Number</label>
+        <input
+          type="text"
+          name="number"
+          placeholder="Phone Number"
+          value={number}
+          onChange={this.handleChange}
+        />
+        <button type="submit">Add contact</button>
+      </form>
+    );
+  }
+}
 
 ContactsForm.propTypes = {
-  onAddContact: PropTypes.func.isRequired,
+  onAddContact: PropTypes.func.isRequired
 };
 
 export default ContactsForm;
-
